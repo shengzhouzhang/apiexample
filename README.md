@@ -1,13 +1,13 @@
 twitter apis
 =======
 #features
-login / logout
-timeline (home)
-send tweets
-parse tweet-entities
-load user profile / background
-auto-refresh (30 seconds)
-offline / local storage (when reach twitter request limits, switch to offline version)
+login / logout  <br/>
+timeline (home) <br/>
+send tweets     <br/>
+parse tweet-entities  <br/>
+load user profile / background  <br/>
+auto-refresh (30 seconds)  <br/>
+offline / local storage (when reach twitter request limits, switch to offline version)  <br/>
 
 #structures
 
