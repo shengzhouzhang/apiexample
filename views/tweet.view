@@ -1,0 +1,19 @@
+<div class="profile">
+  <img class="avatar" src="<%= tweet.profile_image %>" >
+  <div class="username">
+    <h4><%= tweet.username %></h4>
+    <a>View my profile page</a>
+  </div>
+  <div class="status">
+    <a href="#"><strong><%= tweet.tweet%></strong> TWEET</a>
+    <a href="#"><strong><%= tweet.following%></strong> FOLLOWING</a>
+    <a href="#"><strong><%= tweet.follower%></strong> FOLLOWER</a>
+  </div>
+  <a href="#" class="signout"><strong>Sign Out</strong></a>
+</div>
+<form role="form">
+  <div class="form-group">
+    <textarea class="form-control tweet" rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block tweet">Tweet</button>
+</form>

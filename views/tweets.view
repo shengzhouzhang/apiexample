@@ -1,0 +1,15 @@
+<h4>Tweets</h4>
+<div class="new_tweets">
+</div>
+<% _.each(tweets, function(tweet){ %>
+  <div class="tweet">
+    <img class="avatar" src="<%= tweet.profile_image_url %>" align="middle">
+    <div class="text">
+      <h5><%= tweet.username %></h5>
+      <h6>@<%= tweet.screenname %></h6>
+      <p><%= tweet.text %></p>
+    </div>
+    <!-- <div class="tools">
+    </div> --> 
+  </div>
+<% }); %>
