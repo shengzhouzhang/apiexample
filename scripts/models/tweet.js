@@ -1,11 +1,13 @@
 define([
-  "template",
+  
+  "jquery",
   "use!underscore",
   "use!backbone",
+  "template",
   "twitter"
 ],
 
-function(Template, _, Backbone, Twitter) {
+function($, _, Backbone, Template, Twitter) {
   
   var tweet = {};
   
@@ -69,7 +71,7 @@ function(Template, _, Backbone, Twitter) {
     
     signout: function() {
       
-      localStorage.clear();
+      //localStorage.clear();
       window.location = "http://localhost:8888/projects/TwitterApp/index.html";
     },
   });

@@ -1,8 +1,10 @@
 define([
+  
+  "jquery",
   "oauth",
   "twitter-entities"
   
-], function(OAuth, Twitter_Entities) {
+], function($, OAuth, Twitter_Entities) {
   
   var params = {
     
@@ -46,7 +48,7 @@ define([
       
       params.oauth_token_secret = token_secret;
       
-      if (parsedQueryString.oauth_callback_confirmed) {
+      if (parsedQueryString && parsedQueryString.oauth_callback_confirmed) {
         
         API.OAuth_Step2(token);
       }

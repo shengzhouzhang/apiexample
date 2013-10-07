@@ -1,6 +1,7 @@
 define([
   
   // Libraries
+  "jquery",
   "use!underscore",
   "use!backbone",
   
@@ -10,10 +11,10 @@ define([
   "models/footer",
   
   // API
-  "twitter"
+  "twitter",
 ],
 
-function(_, Backbone, Signin, TimeLine, Footer, Twitter) {
+function($, _, Backbone, Signin, TimeLine, Footer, Twitter) {
   
   var router = {
     
@@ -36,7 +37,7 @@ function(_, Backbone, Signin, TimeLine, Footer, Twitter) {
       
       // to signin view
       var signin = new Signin.view({
-        el: $("#wrap")
+        el: $("#main_container")
       });
       
       signin.render();
@@ -95,7 +96,7 @@ function(_, Backbone, Signin, TimeLine, Footer, Twitter) {
         if (data && !data.errors) {
           
           timeline = new TimeLine.view({
-            el: $("#wrap"),
+            el: $("#main_container"),
             model: new TimeLine.model({
               username: data.name,
               screenname: data.screen_name,
@@ -111,7 +112,7 @@ function(_, Backbone, Signin, TimeLine, Footer, Twitter) {
         } else {
           
           timeline = new TimeLine.view({
-            el: $("#wrap"),
+            el: $("#main_container"),
             model: new TimeLine.model()
           });
         }

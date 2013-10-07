@@ -1,10 +1,12 @@
 define([
-  "template",
+  
+  "jquery",
   "use!underscore",
   "use!backbone",
+  "template",
 ],
 
-function(Template, _, Backbone, Twitter) {
+function($, _, Backbone, Template) {
 
   var footer = {};
 

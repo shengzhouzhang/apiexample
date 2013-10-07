@@ -1,12 +1,14 @@
 define([
-  "template",
+  
+  "jquery",
   "use!underscore",
   "use!backbone",
+  "template",
   "localstorage",
   "twitter"
 ],
 
-function(Template, _, Backbone, LocalStorage, Twitter) {
+function($, _, Backbone, Template, LocalStorage, Twitter) {
   
   var tweets = {};
   
@@ -94,8 +96,6 @@ function(Template, _, Backbone, LocalStorage, Twitter) {
     
     setInterval(function() {
       
-      //console.log("load...");
-      
       Twitter.getLatestTweets(Twitter.latest_id, function(data) {
         
         if (_.isFunction(done)) {
@@ -103,7 +103,7 @@ function(Template, _, Backbone, LocalStorage, Twitter) {
         }
       });
       
-    }, 60000);
+    }, 30000);
   };
   
   tweets.model = Backbone.Model.extend({

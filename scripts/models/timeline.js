@@ -1,13 +1,17 @@
 define([
-  "template",
+  
+  "jquery",
   "use!underscore",
   "use!backbone",
+  "template",
+  
   "./tweet",
   "./tweets",
+  
   "twitter"
 ],
 
-function(Template, _, Backbone, Tweet, Tweets, Twitter) {
+function($, _, Backbone, Template, Tweet, Tweets, Twitter) {
 
   var timeline = {
     tweet: {},

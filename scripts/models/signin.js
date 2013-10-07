@@ -1,11 +1,13 @@
 define([
-  "template",
+  
+  "jquery",
   "use!underscore",
   "use!backbone",
+  "template",
   "twitter"
 ],
 
-function(Template, _, Backbone, Twitter) {
+function($, _, Backbone, Template, Twitter) {
 
   var signin = {};
 
@@ -37,7 +39,7 @@ function(Template, _, Backbone, Twitter) {
       
       event.preventDefault();
       
-      localStorage.clear();
+      //localStorage.clear();
       Twitter.OAuth_Step1();
     }
   });

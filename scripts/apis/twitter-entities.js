@@ -1,9 +1,8 @@
 define([
-
-  "use!backbone"
+  "jquery"
 ],
 
-function(Backbone) {
+function($) {
 
   function escapeHTML(text) {
     return $('<div/>').text(text).html();

@@ -3,7 +3,7 @@
     <h1>Example App</h1>
   </div>
   <p class="lead">This program uses XMLHttpRequest and OAuth 1.0 to call Twitter REST API directly from browser. It is not a suggested way but for study purpose.</p>
-  <p>To Make this app work, you need to disable browser's web security to allow cross origin request.</p>
+  <p>To Make this app work, you need to disable browser's security to allow domain origin requests.</p>
   <p>If you are using chrome and in Mac, simply run "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security" in Terminal.</p>
   
   <button class="btn btn-lg btn-primary btn-block signin" type="submit">Sign in with Twitter Account</button>

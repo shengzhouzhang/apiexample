@@ -2,7 +2,7 @@
 -------------------------------------------------- */
 
 /* Wrapper for page content to push down footer */
-#wrap {
+#main_container {
   min-height: 100%;
   height: auto !important;
   height: 100%;
