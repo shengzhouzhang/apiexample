@@ -1,10 +1,12 @@
 define([
   "template",
+  "use!underscore",
   "use!backbone",
+  "localstorage",
   "twitter"
 ],
 
-function(Template, Backbone, Twitter, scroll) {
+function(Template, _, Backbone, LocalStorage, Twitter) {
   
   var tweets = {};
   
@@ -18,17 +20,37 @@ function(Template, Backbone, Twitter, scroll) {
       
       Template.fetchTemplate(this.template, function(tmpl) {
         
+        var offline = false;
+        
+        if (view.collection.length == 0) {
+          
+          view.collection.fetch();
+          offline = true;
+          
+        } else {
+          
+          // save to local storage
+          view.collection.forEach(function(tweet) {
+          
+            tweet.save();
+          });
+        }
+        
         var raw = view.collection.toJSON();
         
         var tweets = [];
+        
+        var now = new Date();
+        var minutes = 1000 * 60;
         
         raw.forEach(function(tweet) {
         
           tweets.push({
             username: tweet.user.name,
             screenname: tweet.user.screen_name,
-            profile_image_url: tweet.user.profile_image_url,
-            text: Twitter.parseEntities(tweet)
+            profile_image_url: offline ? null : tweet.user.profile_image_url,
+            text: Twitter.parseEntities(tweet),
+            to_now: Math.ceil((now - Date.parse(tweet.created_at)) / minutes),
           });
         });
         
@@ -72,7 +94,7 @@ function(Template, Backbone, Twitter, scroll) {
     
     setInterval(function() {
       
-      console.log("load...");
+      //console.log("load...");
       
       Twitter.getLatestTweets(Twitter.latest_id, function(data) {
         
@@ -99,6 +121,8 @@ function(Template, Backbone, Twitter, scroll) {
     
       return -tweet.get("id_str");
     },
+    
+    localStorage: new Backbone.LocalStorage("tweets"),
   });
   
   return tweets;

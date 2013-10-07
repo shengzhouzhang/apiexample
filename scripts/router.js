@@ -1,22 +1,23 @@
 define([
   
   // Libraries
+  "use!underscore",
   "use!backbone",
   
   // models
   "models/signin",
   "models/timeline",
+  "models/footer",
   
   // API
   "twitter"
 ],
 
-function(Backbone, Signin, TimeLine, Twitter) {
+function(_, Backbone, Signin, TimeLine, Footer, Twitter) {
   
   var router = {
     
-    base: "http://localhost:8888/projects/TwitterApp/index.html",
-    
+    base: window.location.origin + window.location.pathname
   };
   
   Twitter.Init(router.base + "#/oauth_step2");
@@ -39,6 +40,12 @@ function(Backbone, Signin, TimeLine, Twitter) {
       });
       
       signin.render();
+      
+      var footer = new Footer.view({
+        el: $("#footer_container")
+      });
+      
+      footer.render();
     },
     
     oauth_step2: function(params) {
@@ -82,20 +89,32 @@ function(Backbone, Signin, TimeLine, Twitter) {
       
       Twitter.getProfile(function(data) {
         
+        var timeline;
+
         // to time line view
-        var timeline = new TimeLine.view({
-          el: $("#wrap"),
-          model: new TimeLine.model({
-            username: data.name,
-            profile_image: data.profile_image_url,
-            background: data.profile_use_background_image,
-            background_image: data.profile_background_image_url,
-            background_color: "#" + data.profile_background_color,
-            following: data.friends_count,
-            tweet: data.statuses_count,
-            follower: data.followers_count
-          })
-        });
+        if (data && !data.errors) {
+          
+          timeline = new TimeLine.view({
+            el: $("#wrap"),
+            model: new TimeLine.model({
+              username: data.name,
+              screenname: data.screen_name,
+              profile_image: data.profile_image_url,
+              background: data.profile_use_background_image,
+              background_image: data.profile_background_image_url,
+              background_color: "#" + data.profile_background_color,
+              following: data.friends_count,
+              tweet: data.statuses_count,
+              follower: data.followers_count
+            })
+          });
+        } else {
+          
+          timeline = new TimeLine.view({
+            el: $("#wrap"),
+            model: new TimeLine.model()
+          });
+        }
         
         timeline.render();
       });

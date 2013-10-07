@@ -1,10 +1,11 @@
 define([
   "template",
+  "use!underscore",
   "use!backbone",
   "twitter"
 ],
 
-function(Template, Backbone, Twitter) {
+function(Template, _, Backbone, Twitter) {
   
   var tweet = {};
   
@@ -21,6 +22,8 @@ function(Template, Backbone, Twitter) {
         var template = tmpl({tweet: view.model.toJSON()});
         
         view.$el.html(template);
+        
+        $("div.alert").hide();
         
         if (_.isFunction(done)) {
           
@@ -45,13 +48,28 @@ function(Template, Backbone, Twitter) {
         content = content.substring(0, 139);
       }
       
-      console.log(content);
-      
-      Twitter.tweet(content);
+      Twitter.tweet(content, function(data) {
+        
+        var alert = $("div.alert");
+        
+        if (data && !data.errors)
+          alert.addClass("alert-success").html("Your tweet was posted.");
+        else
+          alert.addClass("alert-danger").html("Your tweet wasn't posted.");
+        
+        alert.show();
+        
+        setTimeout(function() {
+        
+          alert.hide().removeClass("alert-danger").removeClass("alert-success").html("");
+          
+        }, 2000);
+      });
     },
     
     signout: function() {
       
+      localStorage.clear();
       window.location = "http://localhost:8888/projects/TwitterApp/index.html";
     },
   });

@@ -8,6 +8,7 @@ require.config({
     jquery: "./libs/jquery/jquery-2.0.3.min",
     underscore: "./libs/underscore/underscore-min",
     backbone: "./libs/backbone/backbone-min",
+    localstorage: "./libs/backbone/backbone.localStorage-min",
     bootstrap: "./libs/bootstrap.min.js",
     
     template: "./libs/namespace",

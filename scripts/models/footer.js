@@ -2,16 +2,15 @@ define([
   "template",
   "use!underscore",
   "use!backbone",
-  "twitter"
 ],
 
 function(Template, _, Backbone, Twitter) {
 
-  var signin = {};
+  var footer = {};
 
-  signin.view = Backbone.View.extend({
+  footer.view = Backbone.View.extend({
     
-    Template: "views/signin.view",
+    Template: "views/footer.view",
 
     render: function(done) {
       
@@ -28,20 +27,8 @@ function(Template, _, Backbone, Twitter) {
         }
       });
     },
-    
-    events: {
-      "click button.signin": "signin"
-    },
-    
-    signin: function(event) {
-      
-      event.preventDefault();
-      
-      localStorage.clear();
-      Twitter.OAuth_Step1();
-    }
   });
 
-  return signin;
+  return footer;
 
 });

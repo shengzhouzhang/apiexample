@@ -36,7 +36,7 @@ div.timeline > div.tweets_container {
   /*
   background-image: -moz-linear-gradient(
     rgba(255, 255, 255, 0.8) 0%, 
-    rgba(255, 255, 255, 0.4) 95%
+    rgba(255, 255, 255, 0.2) 95%
   );
   */
 }
@@ -111,6 +111,11 @@ div.tweet > div.text > h6 {
   color: #999;
 }
 
+div.tweet > div.text > h6.time {
+  
+  float: right;
+}
+
 div.tweet > div.text > p {
  
   padding: 25px 0 0 0;
@@ -180,7 +185,7 @@ div.new_tweets {
   padding: 10px;
   margin-bottom: 5px;
   border: 1px solid #ddd;
-  background-color: #eee;
+  background-color: rgba(240, 240, 240, 0.6);
   text-align: center;
 }
 
@@ -188,4 +193,16 @@ div.new_tweets:hover {
   
   cursor: pointer;
   background-color: rgba(240, 240, 240, 0.8);
+}
+
+div.alert {
+ 
+  width: 220px;
+  position: fixed;
+  top: 20px;
+  right: 60px;
+  padding: 10p 15px 10px 15px;
+  margin: 0;
+  text-align: center;
+  z-index: 200;
 }

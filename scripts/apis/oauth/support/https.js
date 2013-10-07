@@ -45,7 +45,7 @@ define(function() {
     
     xhr.onerror = function() {
       
-      console.log("error: " + xhr.responseText);
+      callback("error", xhr.responseText)
     };
   };
     

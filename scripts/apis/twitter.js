@@ -112,7 +112,10 @@ define([
       params.access_token_secret,
       function (e, data, res){
         
-        callback($.parseJSON(data));
+        if (data !== "")
+          callback($.parseJSON(data));
+        else
+          callback();
       }
     );
   }
@@ -125,15 +128,22 @@ define([
       params.access_token_secret,
       function (e, data, res){
         
-        var json = $.parseJSON(data);
-        
-        if (json.length > 0) {
+        if (data !== "") {
           
-          API.latest_id = json[0].id_str;
-          API.least_id = json[json.length - 1].id_str;
+          var json = $.parseJSON(data);
+          
+          if (!json.error && json.length > 0) {
+            
+            API.latest_id = json[0].id_str;
+            API.least_id = json[json.length - 1].id_str;
+          }
+          
+          callback(json);
+          
+        } else {
+          
+          callback();
         }
-        
-        callback(json);
       }
     );
   };
@@ -158,7 +168,7 @@ define([
     API.getTimeLine(settings, callback);
   };
   
-  API.tweet = function(content) {
+  API.tweet = function(content, callback) {
     
     content = encodeURIComponent(content);
 
@@ -176,9 +186,15 @@ define([
       null,
       function(e, data, res) {
         
-        console.log(e);
-        console.log(data);
-        console.log(res);
+        if (data !== "") {
+          
+          var json = $.parseJSON(data);
+          callback(json);
+          
+        } else {
+          
+          callback();
+        }
       }
     );
   };

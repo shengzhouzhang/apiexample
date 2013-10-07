@@ -2,3 +2,6 @@
   <div class="tweet_container"></div>
   <div class="tweets_container"></div>
 </div>
+
+<!--<img id="hiddenImage" ></img>
+<canvas id="hiddenCanvas" ></canvas>-->

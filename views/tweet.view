@@ -1,13 +1,15 @@
 <div class="profile">
-  <img class="avatar" src="<%= tweet.profile_image %>" >
+  <% if (tweet.profile_image) { %>
+    <img class="avatar" src="<%= tweet.profile_image %>" >
+  <% } %>
   <div class="username">
     <h4><%= tweet.username %></h4>
-    <a>View my profile page</a>
+    <a href="https://twitter.com/<%= tweet.screenname %>" target="_blank">View my profile page</a>
   </div>
   <div class="status">
-    <a href="#"><strong><%= tweet.tweet%></strong> TWEET</a>
-    <a href="#"><strong><%= tweet.following%></strong> FOLLOWING</a>
-    <a href="#"><strong><%= tweet.follower%></strong> FOLLOWER</a>
+    <a><strong><%= tweet.tweet%></strong> TWEET</a>
+    <a><strong><%= tweet.following%></strong> FOLLOWING</a>
+    <a><strong><%= tweet.follower%></strong> FOLLOWER</a>
   </div>
   <a href="#" class="signout"><strong>Sign Out</strong></a>
 </div>
@@ -17,3 +19,7 @@
   </div>
   <button type="submit" class="btn btn-primary btn-block tweet">Tweet</button>
 </form>
+
+<div class="alert">
+Your tweet was Posted.
+</div>
