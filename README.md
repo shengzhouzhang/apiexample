@@ -1,8 +1,7 @@
 twitter apis
 =======
-<<<<<<< HEAD
 
-Examples of calling twitter api directly from web pages. OAuth tokens are all stored in browers, it is for study purpose only.
+This is an example of calling twitter api directly from web pages. OAuth tokens are all stored in browers.
 
 Demo: http://szha246.github.io/apiexample/
 =======
@@ -39,4 +38,4 @@ offline / local storage (when reach twitter request limits, switch to offline ve
 
 #issues
 1. you need to disable browser's security to allow cross domain requests.
->>>>>>> gh-pages
+
