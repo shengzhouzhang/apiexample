@@ -1,4 +1,4 @@
-twitter apis
+Twitter API Demo
 =======
 
 This is an example of calling twitter api directly from web pages. OAuth tokens are all stored in browers.
