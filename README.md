@@ -1,11 +1,11 @@
-Twitter API Demo
+API Demo
 =======
 
 This is an example of calling twitter api directly from web pages. OAuth tokens are all stored in browers.
 
 Demo: http://szha246.github.io/apiexample/
 =======
-#features
+#Features
 login / logout  <br/>
 timeline (home) <br/>
 send tweets     <br/>
@@ -14,7 +14,7 @@ load user profile / background  <br/>
 auto-refresh (30 seconds)  <br/>
 offline / local storage (when reach twitter request limits, switch to offline version)  <br/>
 
-#structures
+#Structures
 
 |
 |-css
@@ -36,6 +36,6 @@ offline / local storage (when reach twitter request limits, switch to offline ve
 |
 |-index.html
 
-#issues
+#Issues
 1. you need to disable browser's security to allow cross domain requests.
 
