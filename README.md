@@ -1,7 +1,7 @@
 API Demo
 =======
 
-This is an example of calling twitter api directly from web pages. OAuth tokens are all stored in browers.
+This is an example of calling twitter api directly from web pages. OAuth tokens are all stored in the brower.
 
 Demo: http://szha246.github.io/apiexample/
 =======
